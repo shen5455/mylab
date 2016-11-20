@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- <script>
+    var A = {};
+    A.on = function(dom, type, fn) {
+    	console.log(dom);
+        if (dom.addEventListener) {
+            A.on = function(dom, type, fn) {
+                dom.addEventListener(type, fn, false);
+            }
+        } else if (dom.attachEvent) {
+            A.on = function(dom, type, fn) {
+                dom.attachEvent('on' + type, fn);
+            }
+        } else {
+            A.on = function(dom, type, fn) {
+                dom['on' + type] = fn;
+            }
+        }
+        A.on(dom, type, fn);
+    };
+    A.on(document.body, 'click', function() {
+        alert("hello");
+    });
+    </script> -->
+</head>
+
+<body>
+    <div id="test"></div>
+    <script>
+    // 同步模式
+    // var F = F || {};
+    // F.define = function(str, fn) {
+    //     var parts = str.split('.'),
+    //         parent = this,
+    //         old = parent,
+    //         len = 0,
+    //         i = len;
+    //     if (parts[0] === 'F') {
+    //         parts = parts.slice(1);
+    //     }
+
+    //     if (parts[0] === 'define' || parts[0] === 'module') {
+    //         return;
+    //     }
+    //     console.log("this",this);
+    //     console.log("parent",parent);
+    //     console.log("old",old);
+
+
+
+    //     for (len = parts.length; i < len; i++) {
+    //         if (typeof parent[parts[i]] === 'undefined') {
+    //         	console.log("3",parent);
+    //         	console.log("1",parent.string);
+    //             parent[parts[i]] = {};
+    //     		console.log("2",parent.string);
+    //         }
+
+    //         old = parent;
+    //         console.log("parent[parts[i]];",parent)
+    //         parent = parent[parts[i]];
+    //     	console.log("parent",parent);
+    //     	console.log("old",old);
+    //     }
+
+    //     if (fn) {
+    //         old[parts[--i]] = fn();
+    //     }
+
+    //     return this;
+    // }
+
+
+    // F.define('string', function() {
+    //     return {
+    //         trim: function(str) {
+    //             return str.replace(/^\s+|\s+$/g, '')
+    //         }
+    //     }
+    // });
+    // console.log(F.string.trim("shen jia     ")+"shen")
+    // F.define('dom', function() {
+
+    //     var $ = function(id) {
+    //     	console.log("$",$);
+    //     	console.log("id",id);
+    //         $.dom = document.getElementById(id);
+
+    //         return $;
+    //     }
+
+
+    //     $.html = function(html) {
+
+    //         if (html) {
+    //         	console.log("html",this);
+    //             this.dom.innerHTML = html;
+    //             return this;
+    //         } else {
+    //             return this.dom.innerHTML;
+    //         }
+    //     }
+    //     return $;
+    // });
+    // F.dom('test').html("hello");
+
+
+
+    // F.define('dom.addClass');
+    // F.dom.addClass = function(type, fn) {
+    // 	console.log("bbss",this.dom);
+    //     return function(className) {
+    //     	console.log("bbs2",className);
+    //         if (!~this.dom.dom.className.indexof(className)) {
+    //             this.dom.dom.className += ' ' + className;
+    //         }
+    //     }
+    // };
+    // F.dom.addClass('test')('test2');
+    // 惰性模式
+    // var A = {};
+    // A.on = function(dom, type, fn){
+    // 	if(dom.addEventListener){
+    // 		dom.addEventListener(type, fn, false);
+    // 	}else if(dom.attachEvent){
+    // 		dom.attachEvent('on' + type, fn); 
+    // 	}else{
+    // 		dom['on' + type] = fn;
+    // 	}
+    // }
+
+    // A.on = function(dom, type, fn){
+    // 	if(document.addEventListener){
+    // 		return fucntion(dom, type, fn){
+    // 			dom.addEventListener(type, fn, false);
+    // 		}
+    // 	}else if(document.attachEvent){
+    // 		return function(dom, type, fn){
+    // 			dom.attachEvent('on' + type, fn);
+    // 		}
+    // 	}else{
+    // 		return function(dom, type, fn){
+    // 			dom['on' + type] = fn;
+    // 		}
+    // 	}
+    // };
+    // console.log("A.on", A.on);
+
+
+    // var MarryState = function(){
+    // 	console.log("3")
+    // 	var _currentState = {};
+    // 	var states = {
+    // 		jump: function(){
+    // 			console.log("jump");
+    // 		},
+    // 		move: function(){
+    // 			console.log("move");
+    // 		},
+    // 		shoot: function(){
+    // 			console.log("shoot");
+    // 		},
+    // 		squat: function(){
+    // 			console.log("squat");
+    // 		},
+    // 	};
+
+    // 	var Action = {
+    // 		changeState: function(){
+    // 			console.log("4");
+    // 			var arg = arguments;
+    // 			_currentState = {};
+
+    // 			if(arg.length){
+    // 				for(var i = 0,len = arg.length; i < len; i++){
+    // 					_currentState[arg[i]] = true;
+    // 				}
+    // 			}
+    // 			return this;
+    // 		},
+    // 		goes: function(){
+    // 			console.log('触发一次动作');
+    // 			for(var i in _currentState){
+    // 				states[i] && states[i]();
+    // 			}
+    // 			return this;
+    // 		}
+    // 	}
+
+    // 	return {
+    // 		change: Action.changeState,
+    // 		goes: Action.goes
+    // 	}
+    // }
+    // console.log("1");
+    // console.log(MarryState());
+    // MarryState().change('jump','shoot').goes();
+    // console.log("2");
+
+    // var BaseLocalStorage = function(preId, timeSign){
+    // 	this.preId = preId;
+    // 	this.timeSign = timeSign || '|-|';
+    // }
+
+    // BaseLocalStorage.prototype = {
+    // 	status: {
+    // 		SUCCESS : 0,
+    // 		FAILURE : 1,
+    // 		OVERFLOW : 2,
+    // 		TIMEOUT : 3,
+    // 	},
+    // 	storage: localStorage || window.localStorage,
+    // 	getKey: function(key){
+    // 		return this.preId + key;
+    // 	},
+    // 	set: function(key, value, callback, time){
+    // 		var status = this.status.SUCCESS;
+    // 		var key = this.getKey(key);
+    // 		try{
+    // 			time = new Date(time).getTime() || time.getTime();
+    // 		}catch(e){
+    // 			time = new Date().getTime() + 1000*60*60*24*31;
+    // 		}
+
+    // 		try{
+    // 			this.storage.setItem(key, time + this.timeSign + value);
+    // 		}catch(e){
+    // 			status = this.status.OVERFLOW;
+    // 		}
+    // 		callback && callback.call(this, status, key, value);
+    // 	},
+    // 	get: function(key, callback){
+    // 		var status = this.status.SUCCESS;
+    // 		var key = this.getKey(key);
+    // 		var value = null;
+    // 		var timeSignLen = this.timeSign.length;
+    // 		var that = this;
+    // 		var index;
+    // 		var time;
+    // 		var result;
+    // 		try{
+    // 			value = that.storage.getItem(key);
+    // 		}catch(e){
+    // 			result = {
+    // 				status: that.status.FAILURE,
+    // 				value: null,
+    // 			};
+    // 		}
+    // 		if(value){
+    // 			index = value.indexOf(that.timeSign);
+    // 			time = +value.slice(0, index);
+    // 			if(new Date(time).getTime() > new Date().getTime() || time == 0){
+    // 				value = value.slice(index + timeSignLen);
+    // 			}else{
+    // 				value = null;
+    // 				status = that.status.TIMEOUT;
+    // 				that.remove(key);
+    // 			}
+    // 		}else{
+    // 			status = that.status.FAILURE;
+    // 		}
+
+    // 		result = {
+    // 			status: status,
+    // 			value: value
+    // 		};
+
+    // 		callback && callback.call(this, result.status, result.value);
+    // 		return result;
+    // 	},
+    // 	remove: function(key, callback){
+    // 		var status = this.status.FAILURE;
+    // 		var key = this.getKey(key);
+    // 		var value = null;
+
+
+    // 		try{
+    // 			value = this.storage.getItem(key);
+    // 		}catch(e){}
+
+    // 		if(value){
+    // 			try{
+    // 				this.storage.removeItem(key);
+    // 				status = this.status.SUCCESS;
+    // 			}catch(e){
+
+    // 			}
+    // 		}
+    // 		callback && callback.call(this, status, status > 0 ? null : value.slice(value.indexOf(this.timeSign) + this.timeSign.length))
+    // 	}
+    // }
+    // var LS = new BaseLocalStorage('LS__');
+    // LS.set('a', 'xiao ming', function(){console.log(arguments);});
+    // LS.set('b', 'shenjialin', function(){console.log(arguments);});
+    // LS.get('a',function(){console.log(arguments);});
+    // LS.get('b',function(){console.log(arguments);});
+    // LS.remove('a',function(){console.log(arguments);});
+    // LS.get('b',function(){console.log(arguments);});
+    </script>
+   </body>
+</html>

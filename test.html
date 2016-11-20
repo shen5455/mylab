@@ -1,0 +1,16 @@
+//命令模式 // var CreateCommand = function(receiver){ // this.receiver = receiver; // } // CreateCommand.prototype.execute = function(){ // this.receiver.action(); // } // var TVOn = function(){ // TVOn.prototype.action = function(){ // console.log("TVOn"); // } // } // var TVOff = function(){ // TVOff.prototype.action = function(){ // console.log("TVOff"); // } // } // var Invoker = function(tvOnCommand,tvOffCommand){ // this.tvOnCommand = tvOnCommand; // this.tvOffCommand = tvOffCommand; // } // Invoker.prototype.tvOn = function(){ // this.tvOnCommand.execute(); // } // Invoker.prototype.tvOff = function(){ // this.tvOffCommand.execute(); // } // var tvOnCommand = new CreateCommand(new TVOn()); // var tvOffCommand = new CreateCommand(new TVOff()); // var invoker = new Invoker(tvOnCommand,tvOffCommand); // invoker.tvOn(); // invoker.tvOff(); //异步模块模式 // ~(function(F){ // var moduleCache = {}; // var setModule = function(moduleName, params, callback); // var loadmodule = function(moduleName, callback){ // var _module; // if(moduleCatch[moduleName]){ // _module = moduleCatch[moduleName]; // if(_modue.status === "loaded"){ // setTimeout(callback(_modue.exports),0); // }else{ // _module.onload.push(callback); // } // }else{ // moduleCatch[moduleName] = { // moduleName : moduleName, // status: 'loading', // exports: null, // onload: [callback] // }; // loadScript(getUrl(moduleName)); // } // }; // var getUrl = function(moduleName){ // return String(modueName).replace(/\.js$/g,'') + '.js'; // }; // var loadScript = function(src){ // var _script = document.createElement('script'); // _script.type = 'text/JavaScript'; // _script.async = true; // _script.src = src; // document.getElementByTagName('head')[0].appendChild(_script); // }; // F.module = function(url,modDeps, modCallback){ // //将参数装换为数组 // var args = [].slice.call(arguments); // //获取模块构造函数 // var callback = args.pop(); // var deps = (args.length && args[args.length - 1] instanceof Array)? args.pop() : []; // var url = args.length ? args.pop() : null; // var params = []; // var depsCount = 0; // var i = 0; // var len; // if(len = deps.length){ // while(i
+< len){//闭包保存i // (function(i){ // depsCount++; // loadModule(deps[i],function(mod){ // param[i]=m od; // depsCount--; // if(depsCount===){ // setModule(url, params, callback); // } // }); // })(i); // i++; // } // }else{ // setModule(url, [], callback); // } // } // })((function(){ // return window.F={ // }; // })()); <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script>
+        
+        </script>
+    </head>
+
+    <body>
+    </body>
+
+    </html>

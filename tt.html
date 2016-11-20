@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./dynamics.js"></script>
+</head>
+<body>
+	<div id="logo" style="width: 100px;height: 100px;background-color: yellow;"></div>
+	<script>
+		var el = document.getElementById("logo")
+			dynamics.animate(el, {
+			  translateX: 350,
+			  translateY: 350,
+			  scale: 2,
+			  opacity: 1
+			}, {
+			  type: dynamics.spring,
+			  frequency: 200,
+			  friction: 200,
+			  duration: 1500
+			})
+	</script>
+</body>
+</html>
