@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+</head>
+<body>
+	<div id="demo"></div>
+	<div class="she">1</div>
+	<div class="she">2</div>
+	<script>
+		var A = function(selector){
+			return new A.fn.init(selector);
+		}
+		A.fn = A.prototype = {
+			constructor: A,
+			init: function(selector,context){
+				// this[0] = document.getElementById(selector);
+				this.length = 0;
+				context = context || document;
+				if(~selector.indexOf('#')){
+					this[0] = document.getElementById(selector.slice(1));
+					this.length = 1;
+				}else{
+					console.log(context);
+					var doms = context.getElementByTags(selector);
+					var i = 0;
+					var len = doms.length;
+
+					for(;i < len; i++){
+						this[i] = doms[i];
+					}
+					this.length = len;
+				}
+				this.context = context;
+				this.selector = selector;
+				// console.log(this);
+				return this;
+			},
+			length: 2,
+			size: function(){
+				console.log("hello world");
+				return this.length;
+			}
+		}
+		A.fn.init.prototype = A.fn;
+		console.log(A('#demo').size());
+		console.log(A('she').size());
+	</script>
+</body>
+</html>
