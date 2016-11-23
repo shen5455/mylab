@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- <script>
+		Math.random()函数返回0和1之间的伪随机数，可能为0，但总是小于1，[0,1)
+生成n-m，包含n但不包含m的整数：
+第一步算出 m-n的值，假设等于w
+第二步Math.random()*w
+第三步Math.random()*w+n
+第四步parseInt(Math.random()*w+n, 10)
+生成n-m，不包含n但包含m的整数：​
+第一步算出 m-n的值，假设等于w
+第二步Math.random()*w
+第三步Math.random()*w+n
+第四步Math.floor(Math.random()*w+n) + 1
+生成n-m，不包含n和m的整数：
+第一步算出 m-n-2的值，假设等于w
+第二步Math.random()*w
+第三步Math.random()*w+n +1
+第四步Math.round(Math.random()*w+n+1) 或者 Math.ceil(Math.random()*w+n+1)
+生成n-m，包含n和m的随机数：
+第一步算出 m-n的值，假设等于w
+第二步Math.random()*w
+第三步Math.random()*w+n
+第四步Math.round(Math.random()*w+n) 或者 Math.ceil(Math.random()*w+n)
+	</script> -->
+</head>
+<body>
+	<svg id="demo" style="width:1200px;height:600px;" xmlns="http://www.w3.org/2000/svg" version="1.1">
+	   <circle cx="100" cy="50" r="6" fill="red" />
+	   <circle cx="200" cy="50" r="6" fill="red" />
+	</svg>
+	<script>
+		var colors = ["yellow","red","orange","green","blue","purple","pink","white","black","brown","grey"];
+		var demo = document.getElementById("demo");
+		
+		var yield = function(){
+			var i = 0;
+			var circle;
+			while(i++ < 100){
+				// console.log(Math.round(Math.random()*10));
+				circle =document.createElementNS("http://www.w3.org/2000/svg","circle");
+				circle.setAttribute("cx",Math.round(Math.random()*1200)); 
+				circle.setAttribute("cy",Math.round(Math.random()*600)); 
+				circle.setAttribute("r","6"); 
+				circle.setAttribute("fill",colors[Math.round(Math.random()*10)]);
+				demo.appendChild(circle);
+			}
+		}
+		yield();
+		// console.log(Math.floor(Math.random()*1000+1));
+	</script>
+	
+</body>
+</html>
